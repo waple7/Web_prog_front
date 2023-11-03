@@ -5,17 +5,51 @@
 body{
     background-color: #161b1d;
     height:1000px;
+    @media (max-width: 1702px) {
+        .main, head{
+            max-width: 1200px;
+        }
+    }
+    @media (max-width: 1250px) {
+        .main, head{
+            max-width: 970px;
+        }
+    }
+    @media (max-width: 992px) {
+        .main, head{
+            max-width:750px ;
+        }
+    }
+    @media screen and (max-width: 1200px) {
+        .img_guarantee {
+            display: none;
+        }
+    }
+    @media (max-width: 1200px) {
+        .button {
+            display: none;
+        }
+
+        .img_logo {
+            float: none;
+            margin: 0 auto;
+        }
+    }
+
+
 }
 header{
-    width:100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-width:1702px;
     height:70px;
-    border-bottom: 4px solid;
-    border-bottom-color: #AA95DA;
+    /*border-bottom: 4px solid;*/
+    /*border-bottom-color: #AA95DA;*/
     background:#161b1d;
-    margin-bottom: 50px;
-    float: left;
+    margin: 0 auto 100px auto;
     .img_logo{
-        margin-left: 5%;
         float: left;
         cursor: pointer;
         height: 70px;
@@ -46,107 +80,108 @@ header{
     }
 }
 main {
-    .services_center {
+    max-width: 1600px;
+    margin: 0 auto;
+    background: #161b1d;
+    border: 4px solid #AA95DA;
+    padding: 100px 2.5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    .services_title {
 
         margin-bottom: 35px;
         color: #AA95DA;
         text-align: center;
 
         font-size: 40px;
-        line-height:70px;
+        line-height: 70px;
         font-family: Roboto, sans-serif;
         font-weight: bold;
         text-decoration: underline;
     }
 
-    width: 85%;
-    margin-left: 5%;
-    margin-top: 50px;
-    background: #161b1d;
-    border: 4px solid #AA95DA;
-    padding: 100px 2.5%; /* отступ внутри блока */
-    float: left;
-    position: relative;
-    z-index: 0;
+    .games {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        .block_cs {
+            flex: 0 1 32%;
+            background-color: #2b3438;
+            margin-right: 20px;
+            margin-bottom: 100px;
 
-    .block_cs {
-        width: 520px;
-        height: 400px;
-        background-color: #2b3438;
-        float: left;
-        margin-right: 20px;
-        margin-bottom: 100px;
-        .text_cs{
-            font-size: 23px;
-            line-height:35px;
-            font-family: Roboto, sans-serif;
-            font-weight: 500;
+            .text_cs {
+                font-size: 23px;
+                line-height: 35px;
+                font-family: Roboto, sans-serif;
+                font-weight: 500;
+                color: azure;
+                list-style-type: square;
+                padding-left: 25px;
+            }
+
+            .img_cs {
+                cursor: pointer;
+                width: 520px;
+                height: 250px;
+            }
+        }
+
+        .block_dota {
+            flex: 0 1 32%;
+            background-color: #2b3438;
             color: azure;
-            list-style-type: square;
-            padding-left: 25px;
+            margin-bottom: 100px;
+            margin-right: 20px;
+
+            .text_dota {
+                color: azure;
+                padding-left: 25px;
+                font-size: 23px;
+                line-height: 35px;
+                font-family: Roboto, sans-serif;
+                font-weight: 500;
+                list-style-type: square;
+            }
+
+            .img_dota {
+                cursor: pointer;
+                width: 520px;
+                height: 250px;
+            }
+
         }
 
-        .img_cs {
-            cursor: pointer;
-            width: 520px;
-            height: 250px;
-        }
-    }
+        .block_genshin {
+            flex: 0 1 32%;
+            background-color: #2b3438;
+            margin-bottom: 100px;
 
-    .block_dota {
-        width: 520px;
-        height: 400px;
-        background-color: #2b3438;
-        float: left;
-        color: azure;
-        margin-bottom: 100px;
-        margin-right: 20px;
-        .text_dota {
-            color: azure;
-            padding-left: 25px;
-            font-size: 23px;
-            line-height:35px;
-            font-family: Roboto, sans-serif;
-            font-weight: 500;
-            list-style-type: square;
-        }
+            .text_genshin {
+                color: azure;
+                font-size: 23px;
+                line-height: 35px;
+                font-family: Roboto, sans-serif;
+                font-weight: 500;
+                list-style-type: square;
+                padding-left: 25px;
+            }
 
-        .img_dota {
-            cursor: pointer;
-            width: 520px;
-            height: 250px;
-        }
-
-    }
-
-    .block_genshin {
-        width: 520px;
-        height: 400px;
-        background-color: #2b3438;
-        float: left;
-        margin-bottom: 100px;
-        .text_genshin{
-            color: azure;
-            font-size: 23px;
-            line-height:35px;
-            font-family: Roboto, sans-serif;
-            font-weight: 500;
-            list-style-type: square;
-            padding-left: 25px;
-        }
-
-        .img_genshin {
-            cursor: pointer;
-            width: 520px;
-            height: 250px;
+            .img_genshin {
+                cursor: pointer;
+                width: 520px;
+                height: 250px;
+            }
         }
     }
 
     .block_guarantee {
-        .guarantee_center {
+        .guarantee_title {
             color: #AA95DA;
             text-align: center;
-
             font-size: 40px;
             line-height:70px;
             font-family: Roboto, sans-serif;
@@ -154,40 +189,40 @@ main {
             text-decoration: underline;
             margin-bottom: 50px;
         }
-
-        .img_guarantee {
-            cursor: pointer;
-            margin-left: 200px;
-            width: 300px;
-            height: 300px;
+        .quarantee_img_text {
             background-color: #2b3438;
-            float: left;
-            color: azure;
-        }
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
 
-        .text_guarantee {
-            width: 900px;
-            height: 300px;
-            background-color: #2b3438;
-            float: left;
-            .text_ul_guarantee {
-                padding-left: 25px;
-                padding-top: 60px;
+            .img_guarantee {
+                width: 80%;
+                height: 50%;
+                color: azure;
+            }
+
+            .text_guarantee {
+                padding-left: 35px;
+                flex: 0 1 60%;
+                height: 60%;
+                padding-top: 80px;
+                padding-bottom: 45px;
 
                 color: azure;
                 font-size: 22px;
-                line-height:35px;
+                line-height: 35px;
                 font-family: Roboto, sans-serif;
                 font-weight: 500;
                 list-style-type: square;
-            }
 
+
+            }
         }
     }
 
     .block_about_us {
-        .about_us_center {
-            margin-top: 450px;
+        .about_us_title {
+            margin-top: 30px;
             margin-bottom: 5px;
             color: #AA95DA;
             text-align: center;
@@ -202,8 +237,8 @@ main {
 
         .text_about_us {
             margin-top: 50px;
-            width: 1600px;
-            height: 270px;
+            width: 97%;
+            height: 45%;
             background-color: #2b3438;
             float: left;
             margin-right: 20px;
@@ -222,18 +257,17 @@ main {
 
 
 footer {
-    width: 100%;
+    max-width:1702px;
     height: 70px;
     border-top: 4px solid;
     border-top-color: #AA95DA;
     background: #161b1d;
     color: #fcbad3;
-    margin-top: 50px;
-    float: left;
+    margin: 100px auto 0;
+
 
     .img_logo {
         margin-left: 5%;
-        float: left;
         cursor: pointer;
         height: 70px;
     }
