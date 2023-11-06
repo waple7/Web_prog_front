@@ -74,6 +74,10 @@ header{
         margin-left: 5%;
         float: left;
     }
+    .active {
+        background-color: green;
+        color: white;
+    }
     & nav li:hover {
         background-color: #AA95DA;
         color: #161b1d;
