@@ -1,16 +1,20 @@
 (function() {
     function onPageLoad() {
-        const loadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
+        const startTime = window.performance.now();
 
-        const infoElement = document.createElement('div');
-        infoElement.innerText = `Время загрузки: ${loadTime} мс`;
-        infoElement.style.fontSize = '14px';
-        infoElement.style.color = '#333';
-        infoElement.style.marginTop = '10px';
+        window.addEventListener('load', function() {
+            const loadTime = window.performance.now() - startTime;
 
-        const footer = document.querySelector('footer');
-        footer.appendChild(infoElement);
+            const infoElement = document.createElement('div');
+            infoElement.innerText = `Time: ${loadTime} мс`;
+            infoElement.classList.add('timer');
+
+            const footer = document.querySelector('footer');
+            footer.appendChild(infoElement);
+        });
     }
 
-    window.addEventListener('load', onPageLoad);
+    onPageLoad();
 })();
+// IIFE (Immediately Invoked Function Expression)-немедленно вызываемое функциональное выражение
+// обработчик события для window сработает когда все ресурсы будут загружены
