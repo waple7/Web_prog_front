@@ -1,34 +1,14 @@
-(function() {
-    function onPageLoad() {
-        const startTime = window.performance.now();
+window.addEventListener("load", function () {
+    console.log("Script is running!"); // добавьте эту строку
+    const durationElement = document.getElementsByClassName('timer').item(0);
 
-        window.addEventListener('load', function() {
-            const loadTime = window.performance.now() - startTime;
-
-            const infoElement = document.createElement('div');
-            infoElement.innerText = `Time: ${loadTime} мс`;
-            infoElement.classList.add('timer');
-
-            const footer = document.querySelector('footer');
-            footer.appendChild(infoElement);
-        });
+    if (durationElement) {
+        const loadTime = performance.now();
+        durationElement.textContent = loadTime.toFixed(1) + " мс";
     }
+});
 
-    onPageLoad();
-})();
-// IIFE (Immediately Invoked Function Expression)-немедленно вызываемое функциональное выражение
-// обработчик события для window сработает когда все ресурсы будут загружены
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     var currentPage = window.location.pathname;
-//
-//     var navLinks = document.querySelectorAll('a');
-//     navLinks.forEach(function(link) {
-//         if(link.getAttribute('href') === currentPage) {
-//             link.parentElement.classList.add('active');
-//         }
-//     });
-// });
 window.onload = function (){
     if(document.location.href.includes("index")){
         document.getElementsByClassName('button_main').item(0).classList.add("active");
