@@ -7,21 +7,21 @@ body{
     background-color: #161b1d;
     height:1000px;
     @media (max-width: 1702px) {
-        .main, head{
+        .main, head, footer{
             max-width: 1200px;
         }
     }
     @media (max-width: 1250px) {
-        .main, head{
+        .main, head, footer{
             max-width: 970px;
         }
     }
     @media (max-width: 992px) {
-        .main, head{
+        .main, head, footer{
             max-width:750px ;
         }
     }
-    @media (max-width: 1200px) {
+    @media (max-width: 1500px) {
         .img_guarantee {
             display: none;
         }
@@ -35,14 +35,14 @@ body{
 
 }
 header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    /*position: fixed;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*right: 0;*/
     max-width:1702px;
     height:70px;
-    /*border-bottom: 4px solid;*/
-    /*border-bottom-color: #AA95DA;*/
+    border-bottom: 4px solid;
+    border-bottom-color: #AA95DA;
     background:#161b1d;
     margin: 0 auto 100px auto;
     .img_logo{
@@ -75,24 +75,24 @@ header{
         float: left;
     }
     .active {
-        background-color: green;
-        color: white;
+        background-color: #AA95C0;
+        color: inherit;
     }
     & nav li:hover {
         background-color: #AA95DA;
         color: #161b1d;
     }
-    & nav li:active {
-        background-color: #2b3438;
-        color: #161b1d;
-    }
+    /*& nav li:active {*/
+    /*    background-color: #2b3438;*/
+    /*    color: #161b1d;*/
+    /*}*/
 }
 main {
     max-width: 1600px;
     margin: 0 auto;
     background: #161b1d;
     border: 4px solid #AA95DA;
-    padding: 100px 2.5%;
+    padding: 3% 2.5%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -100,7 +100,8 @@ main {
 
     .services_title, .guarantee_title, .about_us_title, .grid_title{
 
-        margin-bottom: 35px;
+        margin-bottom: 80px;
+        margin-top: 50px;
         color: #AA95DA;
         text-align: center;
 
@@ -132,7 +133,6 @@ main {
             flex: 0 1 32%;
             background-color: #2b3438;
             margin-right: 20px;
-            margin-bottom: 100px;
 
             .img_cs {
                 cursor: pointer;
@@ -145,7 +145,6 @@ main {
             flex: 0 1 32%;
             background-color: #2b3438;
             color: azure;
-            margin-bottom: 100px;
             margin-right: 20px;
 
 
@@ -160,7 +159,6 @@ main {
         .block_genshin {
             flex: 0 1 32%;
             background-color: #2b3438;
-            margin-bottom: 100px;
 
             .img_genshin {
                 cursor: pointer;
@@ -185,15 +183,15 @@ main {
             align-items: flex-start;
 
             .img_guarantee {
-                width: 80%;
-                height: 50%;
+                width: 22%;
+                height: 22%;
                 color: azure;
             }
 
             .text_guarantee {
                 padding-left: 35px;
-                padding-top: 80px;
-                padding-bottom: 45px;
+                padding-top: 50px;
+                /*padding-bottom: 45px;*/
 
             }
         }
@@ -201,21 +199,20 @@ main {
 
     .block_about_us {
         .text_about_us {
-            margin-top: 50px;
             background-color: #2b3438;
             margin-right: 20px;
             padding-left: 25px;
             padding-top: 25px;
             text-indent: 20px;
         }
-        .text_red_indent{
-            text-indent: 4rem;
-            color: red;
-            word-spacing: 5px;
-            letter-spacing: 2px;
-            font-style: italic;
-            text-transform: uppercase;
-        }
+        /*.text_red_indent{*/
+        /*    text-indent: 4rem;*/
+        /*    color: red;*/
+        /*    word-spacing: 5px;*/
+        /*    letter-spacing: 2px;*/
+        /*    font-style: italic;*/
+        /*    text-transform: uppercase;*/
+        /*}*/
     }
     .grid{
         .table_container {
@@ -237,7 +234,6 @@ main {
         .table_container th {
             background-color: #2b3438;
             font-size: 1.5rem;
-            margin-top: 10px;
             color: #AA95DA;
         }
 
@@ -267,7 +263,6 @@ footer {
     margin-top: 15px;
 }
     .img_logo {
-        margin-left: 5%;
         cursor: pointer;
         height: 70px;
     }
@@ -276,7 +271,6 @@ footer {
         display: flex;
         align-items: center;
         float: right;
-        margin-right: 100px;
         & a {
             color: inherit;
             font-size: 2rem;
