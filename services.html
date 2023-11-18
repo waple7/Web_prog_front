@@ -7,8 +7,8 @@
     <meta name="keywords" content="буст, dota 2, counter-strike, genshin impact">
     <meta name="author" content="Waple">
     <link rel="stylesheet" href="css/style.css">
-
     <script src="js/script.js"></script>
+    <script src="js/script2.js"></script>
     <title>World Nasanmi</title>
     <title>Catalog</title>
 </head>
@@ -18,7 +18,7 @@
     <nav>
         <ul>
             <li class="button_main"><a href="index.html">Главная</a></li>
-            <li class="button_catalog"><a href="catalog.html">Каталог</a></li>
+            <li class="button_catalog"><a href="services.html">Услуги</a></li>
             <li class="button_team"><a href="team.html">Наш состав</a></li>
             <li class="button_vacancies"><a href="vacancies.html">Ваканасии</a></li>
             <li class="button_comments"><a href="comments.html">Отзывы</a></li>
@@ -27,6 +27,31 @@
 </header>
 
 <main>
+<!--    <h2 class="services_title">Услуги</h2>-->
+
+<!--    <br>-->
+
+    <form id="cardForm">
+        <label for="cardTitle"></label>
+        <select id="cardTitle">
+            <option value="Counter-Strike 2">Counter-Strike 2</option>
+            <option value="Dota 2">Dota 2</option>
+            <option value="Genshin Impact">Genshin Impact</option>
+        </select>
+
+        <br>
+
+        <div id="container">
+            <label class="services" for="cardContent">Перечислите услуги и дополнительные пожелания:</label>
+            <div id="cardContent" contenteditable="true"></div>
+        </div>
+
+        <br>
+
+        <input type="submit" value="Создать заказ">
+    </form>
+
+    <div id="cardContainer"></div>
 </main>
 <footer>
     <img class="img_logo" src="img/logo.png" alt="logo">
