@@ -16,7 +16,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function createAndSaveCard(title, content) {
-        const card = createCard(title, content);
+        if (content === '') {
+            return;
+        }
+
+        const cardData = { title, content };
+        const card = createCard(cardData);
 
         cardContainer.appendChild(card);
 
@@ -24,6 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         attachDeleteHandler(card);
     }
+
+
 
     function attachDeleteHandler(card) {
         const deleteBtn = card.querySelector('button');
@@ -34,15 +41,15 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    function createCard(title, content) {
+    function createCard(cardData) {
         const card = document.createElement('div');
         card.classList.add('card');
 
         const cardTitle = document.createElement('h2');
-        cardTitle.textContent = title;
+        cardTitle.textContent = cardData.title;
 
         const cardContent = document.createElement('p');
-        cardContent.textContent = content;
+        cardContent.textContent = cardData.content;
 
         const deleteBtn = document.createElement('button');
         deleteBtn.textContent = 'Удалить заказ';
@@ -55,18 +62,24 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function saveToLocalStorage() {
-        localStorage.setItem('userInput', cardContainer.innerHTML);
+        const cards = Array.from(cardContainer.querySelectorAll('.card'));
+        const cardsData = cards.map(card => ({
+            title: card.querySelector('h2').textContent,
+            content: card.querySelector('p').textContent,
+        }));
+        localStorage.setItem('userInput', JSON.stringify(cardsData));
     }
 
     function loadFromLocalStorage() {
         const savedData = localStorage.getItem('userInput');
         if (savedData) {
-            cardContainer.innerHTML = savedData;
-
-            const cards = cardContainer.querySelectorAll('.card');
-            cards.forEach(attachDeleteHandler);
+            const cardsData = JSON.parse(savedData);
+            cardsData.forEach(cardData => {
+                const card = createCard(cardData);
+                cardContainer.appendChild(card);
+                attachDeleteHandler(card);
+            });
         }
     }
 });
 //localStorage.clear();
-
