@@ -9,19 +9,19 @@ async function fetchDataFilter(userId, filterCounter) {
 
     if (filterCounter % 2 === 0) {
         // url += '/postshhh';url += '/photos';
-        url += '/photoshhh';
+        url += '/photosssdsd';
     } else {
         // url += '/poststtt';
         url += '/commentshhhhh';
     }
 
-    console.log('URL before fetch:', url);
+    console.log('URL:', url);
 
     try {
         const response = await fetch(url);
 
         if (response.status !== 200) {
-            throw new Error(' response not');
+            return { error: true, message: this.error.message };
         }
 
         return response.json();
@@ -31,12 +31,8 @@ async function fetchDataFilter(userId, filterCounter) {
         const errorContainer = document.getElementById('error_container');
         errorContainer.style.display = 'block';
 
-        // Оставляем блок catch без throw
+        return { error: true, message: this.error.message };
     }
-
-
-
-
 
 }
 
@@ -59,9 +55,10 @@ async function fetchData(userId, numRequests) {
     for (let i = 0; i < numRequests; i++) {
         try {
             const userData = await fetchDataFilter(userId, i);
+
             update(userData);
         } catch (error) {
-            console.error('Error during fetch:', error);
+            console.error('Error :', error);
         }
     }
 }
