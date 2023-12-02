@@ -35,6 +35,8 @@ async function fetchDataFilter(userId, filterCounter) {
     }
 
 
+
+
 }
 
 function update(userDetails) {
