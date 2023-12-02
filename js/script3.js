@@ -31,8 +31,9 @@ async function fetchDataFilter(userId, filterCounter) {
         const errorContainer = document.getElementById('error_container');
         errorContainer.style.display = 'block';
 
-        // throw error;
+        // Оставляем блок catch без throw
     }
+
 
 
 
