@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+
     const form = document.getElementById('cardForm');
     const cardContainer = document.getElementById('cardContainer');
 
@@ -16,10 +17,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function createAndSaveCard(title, content) {
-        // if (content === '') {
-        //     return;
-        // }
         if (content.trim() === '') {
+            showToastError('Ошибка: Неправильный запрос');
             return;
         }
 
@@ -33,7 +32,15 @@ document.addEventListener('DOMContentLoaded', function () {
         attachDeleteHandler(card);
     }
 
-
+    function showToastError(message) {
+        Toastify({
+            text: message,
+            duration: 3000,
+            gravity: 'bottom',
+            position: 'center',
+            backgroundColor: 'linear-gradient(to right, #AA95DA, #AA95DA)',
+        }).showToast();
+    }
 
     function attachDeleteHandler(card) {
         const deleteBtn = card.querySelector('button');
@@ -85,4 +92,3 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 });
-//localStorage.clear();
