@@ -1,19 +1,15 @@
 let errorOccurred = false;
 
-async function fetchDataFilter(userId, filterCounter) {
+async function fetchDataFilter(userId) {
     if (errorOccurred) {
         return;
     }
 
-    let url = `https://jsonplaceholder.typicode.com/users/${userId}`;
+    const fetchString = Math.round(Math.random()) === 0;
+    let albumId = fetchString ? 1 : 2;
 
-    if (filterCounter % 2 === 0) {
-        // url += '/postshhh';url += '/photos';
-        url += '/photos';
-    } else {
-        // url += '/poststtt';
-        url += '/comments';
-    }
+    let url = `https://jsonplaceholder.typicode.com/users/${userId}/photos?albumId=${albumId}`;
+
 
     console.log('URL:', url);
 
@@ -21,7 +17,7 @@ async function fetchDataFilter(userId, filterCounter) {
         const response = await fetch(url);
 
         if (response.status !== 200) {
-            return { error: true, message: this.error.message };
+            return { error: true, message: 'Ошибка при получении данных' };
         }
 
         return response.json();
@@ -31,41 +27,36 @@ async function fetchDataFilter(userId, filterCounter) {
         const errorContainer = document.getElementById('error_container');
         errorContainer.style.display = 'block';
 
-        return { error: true, message: this.error.message };
-    }
+        const loadingContainer = document.getElementById('loading_container');
+        loadingContainer.style.display = 'none';
 
+        return { error: true, message: 'Ошибка при получении данных' };
+    }
 }
 
 function update(userDetails) {
-    const userDetailsList = document.getElementById('user_describe_list');
     const userDetailsContainer = document.getElementById('user_describe_container');
     const loadingContainer = document.getElementById('loading_container');
     const userCardTemplate = document.getElementById('photo_template');
 
-    const album1Photos = userDetails.filter(photo => photo.albumId === 1);
+    userDetailsContainer.innerHTML = '';
 
-    album1Photos.sort(() => Math.random());
-
-    const randomAlbum1Photos = album1Photos.slice(0, 5);
-
-    for (const photo of randomAlbum1Photos) {
-        // Клонируем содержимое шаблона
+    for (const photo of userDetails.slice(0, 5)) {
         const listItem = userCardTemplate.content.cloneNode(true);
 
-        // Заполняем данные
-        listItem.querySelector('img').src = photo.thumbnailUrl;
-        listItem.querySelector('p').textContent = `albumId: ${1}, title: ${photo.title}`;
+        // listItem.querySelector('p').textContent = `AlbumId: ${photo.albumId}, Title: ${photo.title}`;
 
-        userDetailsList.appendChild(listItem);
+        listItem.querySelector('p').textContent = `${photo.title}`;
+
+
+        listItem.querySelector('img').src = photo.thumbnailUrl;
+
+        userDetailsContainer.appendChild(listItem);
     }
 
     loadingContainer.style.display = 'none';
-    userDetailsContainer.style.display = 'block';
+    userDetailsContainer.style.display = 'flex';
 }
-
-
-
-
 
 async function fetchData(userId, numRequests) {
     for (let i = 0; i < numRequests; i++) {
@@ -74,13 +65,11 @@ async function fetchData(userId, numRequests) {
 
             update(userData);
         } catch (error) {
-            console.error('Error :', error);
+            console.error('Ошибка:', error);
         }
     }
 }
-
 const userId = 1;
-
 setTimeout(function () {
-    fetchData(userId, 2);
-}, 3000);
+    fetchData(userId,1);
+}, 1000);

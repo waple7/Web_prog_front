@@ -324,15 +324,6 @@ main {
         margin-top: 65px;
         color: #161b1d;
     }
-#user_describe_container{
-        font-size: 1.6rem;
-        line-height: 2.1875rem;
-        font-family: Roboto, sans-serif;
-        font-weight: 500;
-        color: azure;
-        list-style-type: square;
-        padding-left: 25px;
-}
     #loading_container {
         display: flex;
         align-items: center ;
@@ -364,11 +355,38 @@ main {
         padding: 10px;
         border-radius: 5px;
     }
-    #photo_template{
-        flex-wrap: wrap;  /*будут переноситься на новую строк*/
-        justify-content: center;
-        align-items: flex-start;  /*выравниваться по верхнему краю*/
+
+    #user_describe_container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        font-size: 1.6rem;
+        line-height: 2.1875rem;
+        font-family: Roboto, sans-serif;
+        font-weight: 500;
+        color: azure;
+        list-style-type: square;
+        padding-left: 25px;
     }
+
+    .photo-card {
+        width: 270px;
+        margin: 10px;
+        text-align: center;
+    }
+
+    .photo-card img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .photo-card p {
+        margin: 8px 0;
+        font-size: 2rem;
+
+    }
+
 
 }
 @keyframes spin {
