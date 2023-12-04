@@ -9,10 +9,10 @@ async function fetchDataFilter(userId, filterCounter) {
 
     if (filterCounter % 2 === 0) {
         // url += '/postshhh';url += '/photos';
-        url += '/photosssdsd';
+        url += '/photos';
     } else {
         // url += '/poststtt';
-        url += '/commentshhhhh';
+        url += '/comments';
     }
 
     console.log('URL:', url);
@@ -40,16 +40,32 @@ function update(userDetails) {
     const userDetailsList = document.getElementById('user_describe_list');
     const userDetailsContainer = document.getElementById('user_describe_container');
     const loadingContainer = document.getElementById('loading_container');
+    const userCardTemplate = document.getElementById('photo_template');
 
-    for (const field in userDetails) {
-        const listItem = document.createElement('li');
-        listItem.textContent = `${field}: ${JSON.stringify(userDetails[field])}`;
+    const album1Photos = userDetails.filter(photo => photo.albumId === 1);
+
+    album1Photos.sort(() => Math.random());
+
+    const randomAlbum1Photos = album1Photos.slice(0, 5);
+
+    for (const photo of randomAlbum1Photos) {
+        // Клонируем содержимое шаблона
+        const listItem = userCardTemplate.content.cloneNode(true);
+
+        // Заполняем данные
+        listItem.querySelector('img').src = photo.thumbnailUrl;
+        listItem.querySelector('p').textContent = `albumId: ${1}, title: ${photo.title}`;
+
         userDetailsList.appendChild(listItem);
     }
 
     loadingContainer.style.display = 'none';
     userDetailsContainer.style.display = 'block';
 }
+
+
+
+
 
 async function fetchData(userId, numRequests) {
     for (let i = 0; i < numRequests; i++) {

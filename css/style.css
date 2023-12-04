@@ -364,6 +364,11 @@ main {
         padding: 10px;
         border-radius: 5px;
     }
+    #photo_template{
+        flex-wrap: wrap;  /*будут переноситься на новую строк*/
+        justify-content: center;
+        align-items: flex-start;  /*выравниваться по верхнему краю*/
+    }
 
 }
 @keyframes spin {
