@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function createAndSaveCard(title, content) {
-        if (content.trim() === '') {
+        if (content.trim() === '') { // если попробовать сделать запрос с пробелом от сработает toaster
             showToastError('Ошибка: Неправильный запрос');
             return;
         }
