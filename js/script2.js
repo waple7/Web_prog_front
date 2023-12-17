@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', function () {
         Toastify({
             text: message,
             duration: 3000,
-            gravity: 'bottom',
-            position: 'center',
+            gravity: 'top',
+            position: 'left',
             backgroundColor: 'linear-gradient(to right, #AA95DA, #AA95DA)',
         }).showToast();
     }

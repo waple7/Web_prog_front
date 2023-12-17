@@ -9,9 +9,11 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="toastify-js" level="application" />
-    <orderEntry type="library" name="bootstrap" level="application" />
     <orderEntry type="library" name="bootstrap-theme" level="application" />
     <orderEntry type="library" name="jquery-3.3.1" level="application" />
+    <orderEntry type="library" name="sweetalert2" level="application" />
     <orderEntry type="library" name="toastr.js" level="application" />
+    <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="toastify-js" level="application" />
   </component>
 </module>

@@ -90,6 +90,48 @@ header{
     /*    background-color: #2b3438;*/
     /*    color: #161b1d;*/
     /*}*/
+
+}
+.swal2-popup {
+    border-radius: 8px;
+    background-color: #070c11;
+    max-width: 500px;
+    padding: 20px 20px 30px;
+    border: 2px solid #AA95DA;
+}
+
+.swal2-title {
+    color: #AA95DA;
+    font-size: 3rem;
+}
+
+.swal2-input {
+    border-radius: 5px;
+    background-color: #dce8f2;
+    max-width: 500px;
+    color: #070c11;
+}
+
+.swal2-html-container label{
+    color: #dce8f2;
+    font-size: 2rem;
+}
+
+.swal2-confirm {
+    background-color: #AA95DA;
+    color: #070c11;
+    transition: 0.2s;
+}
+
+.swal2-confirm:hover {
+    background-color: #AA95DA
+}
+
+.swal2-validation-message {
+    background-color: #070c11;
+    color: #dce8f2;
+    font-size: 1.25rem;
+    margin: 0;
 }
 main {
     max-width: 1600px;
