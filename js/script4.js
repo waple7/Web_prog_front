@@ -13,13 +13,23 @@ document.addEventListener('DOMContentLoaded', function () {
             html:
                 '<label for="swal_username">Имя пользователя:</label>' +
                 '<input id="swal_username" class="swal2-input" required>' +
+                '<label for="swal_email">Электронная почта:</label>' +
+                '<input id="swal_email" class="swal2-input" type="email" required>' +
+                '<label for="swal_phone">Номер телефона:</label>' +
+                '<input id="swal_phone" class="swal2-input" type="tel" required>' +
                 '<label for="swal_password">Пароль:</label>' +
-                '<input id="swal_password" class="swal2-input" type="password" required>',
+                '<input id="swal_password" class="swal2-input" type="password" required>'+
+                '<label for="swal_confirm_password">Подтвердите пароль:</label>' +
+                '<input id="swal_confirm_password" class="swal2-input" type="password" required>',
             focusConfirm: false,
 
             preConfirm: () => {  // выполняется перед закрытием окна
                 const swalUsername = Swal.getPopup().querySelector('#swal_username').value; //возвращает DOM-элемент, представляющий всплывающее окно SweetAlert2.
+                const swalEmail = Swal.getPopup().querySelector('#swal_email').value;
+                const swalPhone = Swal.getPopup().querySelector('#swal_phone').value;
                 const swalPassword = Swal.getPopup().querySelector('#swal_password').value;
+                const swalConfirmPassword = Swal.getPopup().querySelector('#swal_confirm_password').value;
+
 
                 if (swalUsername === "" || swalUsername.length < 4) {
                     Swal.showValidationMessage('Введите корректное имя пользователя');
@@ -30,8 +40,21 @@ document.addEventListener('DOMContentLoaded', function () {
                     Swal.showValidationMessage('Этот пароль недостающей длинны!');
                     return false;
                 }
-
+                if (!swalEmail.includes('@')) {
+                    Swal.showValidationMessage('Введите корректный адрес электронной почты');
+                    return false;
+                }
+                if (swalPassword !== swalConfirmPassword) {
+                    Swal.showValidationMessage('Пароли не совпадают');
+                    return false;
+                }
+                if (!swalPhone.includes('+') || swalPhone.length < 12 || swalPhone.length > 12) {
+                    Swal.showValidationMessage('Введите корректный номер телефона');
+                    return false;
+                }
                 console.log('Имя пользователя:', swalUsername);
+                console.log('Электронная почта:', swalEmail);
+                console.log('Номер телефона:', swalPhone);
                 console.log('Пароль:', swalPassword);
             },
         });
