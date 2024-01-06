@@ -36,20 +36,23 @@ document.addEventListener('DOMContentLoaded', function () {
                     return false;
                 }
 
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(swalEmail)) {
+                    Swal.showValidationMessage('Введите корректный адрес электронной почты');
+                    return false;
+                }
+
+                if (!swalPhone.match(/^\+?\d{11}$/)) {
+                    Swal.showValidationMessage('Введите корректный номер телефона (включая код страны)');
+                    return false;
+                }
+
                 if (swalPassword === "" || swalPassword.length < 4) {
                     Swal.showValidationMessage('Этот пароль недостающей длинны!');
                     return false;
                 }
-                if (!swalEmail.includes('@')) {
-                    Swal.showValidationMessage('Введите корректный адрес электронной почты');
-                    return false;
-                }
                 if (swalPassword !== swalConfirmPassword) {
                     Swal.showValidationMessage('Пароли не совпадают');
-                    return false;
-                }
-                if (!swalPhone.includes('+') || swalPhone.length < 12 || swalPhone.length > 12) {
-                    Swal.showValidationMessage('Введите корректный номер телефона');
                     return false;
                 }
                 console.log('Имя пользователя:', swalUsername);

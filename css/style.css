@@ -183,8 +183,8 @@ main {
 
             .img_cs {
                 cursor: pointer;
-                width: 520px;
-                height: 250px;
+                width: 100%;
+                height: 100%;
             }
         }
 
@@ -197,8 +197,8 @@ main {
 
             .img_dota {
                 cursor: pointer;
-                width: 520px;
-                height: 250px;
+                width: 100%;
+                height: 100%;
             }
 
         }
@@ -209,8 +209,8 @@ main {
 
             .img_genshin {
                 cursor: pointer;
-                width: 520px;
-                height: 250px;
+                width: 100%;
+                height: 100%;
             }
         }
     }
