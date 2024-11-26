@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function showRegistrationForm() {
-        Swal.fire({ // вызов окна
+        Swal.fire({
             title: 'Регистрация',
             html:
                 '<label for="swal_username">Имя пользователя:</label>' +
@@ -18,18 +18,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 '<label for="swal_phone">Номер телефона:</label>' +
                 '<input id="swal_phone" class="swal2-input" type="tel" required>' +
                 '<label for="swal_password">Пароль:</label>' +
-                '<input id="swal_password" class="swal2-input" type="password" required>'+
+                '<input id="swal_password" class="swal2-input" type="password" required>' +
                 '<label for="swal_confirm_password">Подтвердите пароль:</label>' +
                 '<input id="swal_confirm_password" class="swal2-input" type="password" required>',
             focusConfirm: false,
-
-            preConfirm: () => {  // выполняется перед закрытием окна
-                const swalUsername = Swal.getPopup().querySelector('#swal_username').value; //возвращает DOM-элемент, представляющий всплывающее окно SweetAlert2.
+            showCancelButton: true,
+            cancelButtonText: 'Выход',
+            customClass: {
+                confirmButton: 'swal2-styled',
+                cancelButton: 'swal2-styled'
+            },
+            preConfirm: () => {
+                const swalUsername = Swal.getPopup().querySelector('#swal_username').value;
                 const swalEmail = Swal.getPopup().querySelector('#swal_email').value;
                 const swalPhone = Swal.getPopup().querySelector('#swal_phone').value;
                 const swalPassword = Swal.getPopup().querySelector('#swal_password').value;
                 const swalConfirmPassword = Swal.getPopup().querySelector('#swal_confirm_password').value;
-
 
                 if (swalUsername === "" || swalUsername.length < 4) {
                     Swal.showValidationMessage('Введите корректное имя пользователя');
