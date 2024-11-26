@@ -32,7 +32,7 @@ body{
         }
     }
     @media (max-width: 1600px) {
-        .button_main, .button_catalog, .button_team,.button_vacancies,.button_comments {
+        .button_main, .button_catalog, .button_team,.button_vacancies,.button_comments, header #registrationButton {
             display: none;
         }
     }
