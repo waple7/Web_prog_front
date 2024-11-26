@@ -1,6 +1,7 @@
 *{
     margin:0;
     padding:0;
+    box-sizing: border-box;
 }
 body{
     font-size: 16px;
@@ -35,6 +36,29 @@ body{
             display: none;
         }
     }
+    @media (max-width: 1600px) {
+        .button_main, .button_catalog, .button_team,.button_vacancies,.button_comments {
+            display: none;
+        }
+        .grid{
+            display: none;
+        }
+        footer .email{
+            display: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+        main, header, footer {
+            max-width: 100%;
+            padding: 0 10px; /* Небольшие отступы по бокам */
+        }
+        .card {
+            width: 100%;  /* Растягивает карточки на всю ширину */
+            margin: 10px 0; /* Уменьшает боковые отступы */
+        }
+    }
+
 
 
 }
@@ -353,7 +377,7 @@ main {
         border-radius: 5px;
         padding: 10px;
         margin: 10px;
-        width: 400px;
+        width: 100%;
         height: 170px;
     }
     .card h2{
