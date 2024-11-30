@@ -1,4 +1,4 @@
 # Web_programming
 
-Радмир Науменко М33101
+Radmir Naumenko М33101
 https://waple7.github.io/Web_prog_front/
